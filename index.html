@@ -161,6 +161,7 @@
         <button type="submit">Tạo Prompt</button>
     </form>
     <div class="prompt-list" id="promptList">
+        <h2>Generated Prompt:</h2>
         <!-- Generated prompts will be displayed here -->
     </div>
     <button id="copyButton">Copy Prompt</button>
@@ -207,7 +208,7 @@ document.getElementById('promptForm').addEventListener('submit', function(event)
 
     // Display prompt
     var promptList = document.getElementById('promptList');
-    promptList.innerHTML = "<h2>Generated Prompt:</h2><p> (masterpiece:1.4),(ultra-detailed),(best shadow),(sharp focus:1.4)," + prompt + "</p>";
+    promptList.innerHTML = "<p> (masterpiece:1.4),(ultra-detailed),(best shadow),(sharp focus:1.4)," + prompt + "</p>";
 });
 // Get the button element
 var copyButton = document.getElementById('copyButton');
@@ -234,7 +235,7 @@ copyButton.addEventListener('click', function() {
     document.body.removeChild(tempTextarea);
 
     // Inform the user that the prompt has been copied
-    alert('Prompt copied to clipboard!');
+    alert('Prompt đã được sao chép!');
 });
 
 </script>
