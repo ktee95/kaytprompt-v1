@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prompt Generator</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-image: url(https://img.freepik.com/free-vector/abstract-low-poly-design_1048-8056.jpg?w=1060&t=st=1708248535~exp=1708249135~hmac=0759142cd980864e8f9d429a423cd2abe84fa6c7203dd66322f761fba8f82881);
+        background-position: center;
+        background-size: cover;
+    }
+    .container {
+        line-height: 1.5em;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #816f1e7d;
+    }
+    button {
+        text-align: center;
+    margin: 0 auto;
+    width: auto;
+    display: block;
+    text-transform: uppercase;
+    font-weight: bold;
+    }
+    .prompt-list {
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Hỗ trợ tạo Prompt</h1>
+    <form id="promptForm">
+        <label for="style">Phong Cách:</label>
+        <select id="style" required>
+            <option value="anime style, cartoon style, 2D">Hoạt hình/Truyện Tranh</option>
+            <option value="analogue">Ảnh Film</option>
+            <option value="beauty">Chụp Beauty</option>
+            <option value="candid">Chụp tự nhiên</option>
+            <option value="documentary">Phóng sự</option>
+            <option value="glamour">Glamour</option>
+            <option value="highFashion">Thời Trang</option>
+            <option value="instant">Film lấy liền</option>
+            <option value="largeFormat">Large Format</option>
+            <option value="lifestyle">Đời sống</option>
+            <option value="paparazzi">Paparazzi</option>
+            <option value="polaroid">máy Polaroid</option>
+            <option value="streetFashion">Đường phố</option>
+        </select><br>
+        <label for="subject">Đối tượng :</label>
+        <select id="subject" required>
+            <option value="woman">cô gái</option>
+            <option value="man">chàng trai</option>
+            <option value="group of people">Nhóm người</option>
+        </select><br>
+        <label for="age">Độ tuổi :</label>
+        <select id="age" required>
+            <option value="teenage">vị thành niên</option>
+            <option value="young">Trẻ</option>
+            <option value="elderly">Lớn tuổi</option>
+        </select><br>
+        <label for="race">Sắc tộc:</label>
+        <select id="race" required>
+            <option value="American">Âu/Mỹ</option>
+            <option value="Asian">Á</option>
+            <option value="African">Phi</option>
+        </select> <br>
+        <label for="moreDetails">Mô tả thêm về đối tượng:</label><br>
+<input type="checkbox" id="wearTshirt" value="wear tshirt">
+<label for="wearTshirt">Mặc áo thun</label>
+<input type="checkbox" id="wearCroptop" value="wear croptop">
+<label for="wearCroptop">Mặc áo croptop</label>
+<input type="checkbox" id="short" value="short">
+<label for="short">Mặc quần short</label>
+<input type="checkbox" id="shortDenim" value="short denim">
+<label for="shortDenim">Mặc quần Jeans</label><br>
+<input type="checkbox" id="nsfwNakedFemale" value="nsfw, naked, breasts, nipples, navel, bottomles">
+<label for="nsfwNakedFemale">Khoả thân nữ</label>
+<input type="checkbox" id="nsfwNakedMale" value="nsfw, naked, muscular body, abs, penis">
+<label for="nsfwNakedMale">Khoả thân Nam</label><br>
+<input type="checkbox" id="longHair" value="long hair">
+<label for="longHair">Tóc dài</label>
+<input type="checkbox" id="bobcutHair" value="bobcut hair">
+<label for="bobcutHair">Tóc ngắn</label><br>
+<input type="checkbox" id="blackHair" value="black hair">
+<label for="blackHair">Tóc đen</label>
+<input type="checkbox" id="blondeHair" value="blonde hair">
+<label for="blondeHair">Tóc vàng</label><br>
+<input type="checkbox" id="wearGlasses" value="wear glasses">
+<label for="wearGlasses">Đeo kính</label>
+<input type="checkbox" id="bikini" value="bikini">
+<label for="bikini">Mặc bikini</label><br>
+        <label for="poseAction">Hành động:</label>
+        <select id="poseAction" required>
+            <option value="sitting">Ngồi</option>
+            <option value="standing">Đứng</option>
+            <option value="squatting">Xổm</option>
+            <option value="kneeling">Quỳ gối</option>
+            <option value="lying">Nằm</option>
+            <option value="jumping">Nhảy lên</option>
+        </select> <br>
+        <label for="framing">Khung:</label>
+        <select id="framing" required>
+            <option value="close up">Góc cận mặt</option>
+            <option value="full body">Toàn thể</option>
+            <option value="head shot, portrait">Chân dung</option>
+            <option value="upper body">thân trên</option>
+            <option value="medium shot">góc cận vừa</option>
+        </select> <br>
+        <label for="location">Địa điểm:</label>
+        <select id="location" required>
+            <option value="indoor">Trong nhà</option>
+            <option value="outdoor">Ngoài trời</option>
+        </select> <br>
+        <label for="background">Bối cảnh:</label>
+        <input type="text" id="background" placeholder="mô tả bối cảnh bằng tiếng anh" required><br>
+        <label for="lighting">Ánh sáng:</label>
+        <select id="lighting" required>
+            <option value="bounced lighting, natural light">Ánh sáng môi trường</option>
+            <option value="candlelight">Ánh sáng nến</option>
+            <option value="cinematic light">Điện ảnh</option>
+            <option value="soft diffused lighting">No sáng nhẹ</option>
+            <option value="fill lighting">No sáng</option>
+            <option value="edge lighting">Ánh sáng viền</option>
+            <option value="flash photography">Đánh Flash</option>
+            <option value="high key lighting">High Key</option>
+            <option value="low key lighting">Low key</option>
+            <option value="neon lighting">Neon màu</option>
+            <option value="silhoutte lighting">Ngược sáng</option>
+        </select> <br>
+        <label for="cameraAngle">Góc máy:</label>
+        <select id="cameraAngle" required>
+        <option value="Dutch angle">Góc nghiêng</option>
+        <option value="from above">Góc từ trên xuống</option>
+        <option value="from below">Góc từ dưới lên</option>
+            <option value="eye level">Ngang tầm mắt</option>
+        </select> <br>
+        <label for="lens">Ống kính:</label>
+        <select id="lens" required>
+        <option value="wide shot, 50mm lens">Góc thường</option>
+        <option value="ultrawide shot, 8mm lens">Góc rộng</option>
+        <option value="200mm lens, bokeh">Góc Tele</option>
+        </select> <br>
+        <label for="camera">Loại máy ảnh:</label>
+        <select id="camera" required>
+            <option value="ALEXA 65">ARRI ALEXA 65mm</option>
+            <option value="Bolex H16">Bolex 16mm</option>
+            <option value="Red camera">Máy điện ảnh RED</option>
+            <option value="Canon EOS 5D">Canon 5D</option>
+            <option value="Fujifilm X-T4">Fuji XT4</option>
+            <option value="GoPro Hero">GoPro</option>
+            <option value="Hasselblad X1D II">Hasselblad</option>
+            <option value="Sony A7III">Sony A7 Mark 3</option>
+            <option value="Leica T">Leica</option>
+            <option value="Red camera">Máy điện ảnh RED</option>
+            </select> <br>
+        <button type="submit">Tạo Prompt</button>
+    </form>
+    <div class="prompt-list" id="promptList">
+        <!-- Generated prompts will be displayed here -->
+    </div>
+    <button id="copyButton">Copy Prompt</button>
+
+</div>
+
+<script>
+document.getElementById('promptForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Get input values
+    var style = document.getElementById('style').value;
+    var styleText = document.getElementById('style').selectedOptions[0].textContent;
+    var subject = document.getElementById('subject').value;
+    var subjectText = document.getElementById('subject').selectedOptions[0].textContent;
+    var age = document.getElementById('age').value; // Corrected variable name
+    var ageText = document.getElementById('age').selectedOptions[0].textContent;
+    var race = document.getElementById('race').value;
+    var raceText = document.getElementById('race').selectedOptions[0].textContent;
+    var moreDetails = [];
+    var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+    checkboxes.forEach(function(checkbox) {
+        moreDetails.push(checkbox.value);
+    });
+    moreDetails = moreDetails.join(', ');
+    var poseAction = document.getElementById('poseAction').value;
+    var poseActionText = document.getElementById('poseAction').selectedOptions[0].textContent;
+    var framing = document.getElementById('framing').value;
+    var framingText = document.getElementById('framing').selectedOptions[0].textContent;
+    var location = document.getElementById('location').value;
+    var locationText = document.getElementById('location').selectedOptions[0].textContent;
+    var background = document.getElementById('background').value;
+    var lighting = document.getElementById('lighting').value;
+    var lightingText = document.getElementById('lighting').selectedOptions[0].textContent;
+    var cameraAngle = document.getElementById('cameraAngle').value;
+    var cameraAngleText = document.getElementById('cameraAngle').selectedOptions[0].textContent;
+    var lens = document.getElementById('lens').value;
+    var lensText = document.getElementById('lens').selectedOptions[0].textContent;
+    var camera = document.getElementById('camera').value;
+    var cameraText = document.getElementById('camera').selectedOptions[0].textContent;
+
+    // Generate prompt
+    var prompt = style + " photo of a " + age + " " + race + " " + subject + ", (" + moreDetails + "), " + poseAction + ", " + framing + " framing photo, " + location + ", " + background + ", " + lighting + ", shot" + cameraAngle + ",shot by " + camera + " with " + lens;
+
+    // Display prompt
+    var promptList = document.getElementById('promptList');
+    promptList.innerHTML = "<h2>Generated Prompt:</h2><p> (masterpiece:1.4),(ultra-detailed),(best shadow),(sharp focus:1.4)," + prompt + "</p>";
+});
+// Get the button element
+var copyButton = document.getElementById('copyButton');
+
+// Add click event listener to the button
+copyButton.addEventListener('click', function() {
+    // Get the generated prompt text
+    var promptText = promptList.textContent;
+
+    // Create a temporary textarea element
+    var tempTextarea = document.createElement('textarea');
+    tempTextarea.value = promptText;
+
+    // Append the textarea to the document body
+    document.body.appendChild(tempTextarea);
+
+    // Select the text within the textarea
+    tempTextarea.select();
+
+    // Copy the selected text to the clipboard
+    document.execCommand('copy');
+
+    // Remove the temporary textarea
+    document.body.removeChild(tempTextarea);
+
+    // Inform the user that the prompt has been copied
+    alert('Prompt copied to clipboard!');
+});
+
+</script>
+</body>
+</html>
