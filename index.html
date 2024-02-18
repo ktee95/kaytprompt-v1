@@ -78,7 +78,7 @@
 <label for="short">Mặc quần short</label>
 <input type="checkbox" id="shortDenim" value="short denim">
 <label for="shortDenim">Mặc quần Jeans</label><br>
-<input type="checkbox" id="nsfwNakedFemale" value="nsfw, naked, breasts, nipples, navel, bottomles">
+<input type="checkbox" id="nsfwNakedFemale" value="nsfw, naked, breasts, nipples, navel, bottomless">
 <label for="nsfwNakedFemale">Khoả thân nữ</label>
 <input type="checkbox" id="nsfwNakedMale" value="nsfw, naked, muscular body, abs, penis">
 <label for="nsfwNakedMale">Khoả thân Nam</label><br>
@@ -204,7 +204,7 @@ document.getElementById('promptForm').addEventListener('submit', function(event)
     var cameraText = document.getElementById('camera').selectedOptions[0].textContent;
 
     // Generate prompt
-    var prompt = style + " photo of a " + age + " " + race + " " + subject + ", (" + moreDetails + "), " + poseAction + ", " + framing + " framing photo, " + location + ", " + background + ", " + lighting + ", shot" + cameraAngle + ",shot by " + camera + " with " + lens;
+    var prompt = style + " photo of a " + age + " " + race + " " + subject + ", (" + moreDetails + "), " + poseAction + ", " + framing + " framing photo, " + location + ", " + background + ", " + lighting + ", shot " + cameraAngle + ",shot by " + camera + " with " + lens;
 
     // Display prompt
     var promptList = document.getElementById('promptList');
